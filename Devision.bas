@@ -1,44 +1,43 @@
 Attribute VB_Name = "Devision"
-' Campany Energo-Pro Bulgaria
 ' Author Erhan Ysuf
 
 Sub Schedule_SBG_REPAIR()
-ActiveSheet.Unprotect Password:="113830"
+ActiveSheet.Unprotect Password:=""
 Call Schedule_Copy(Sheets("Config").Range("Devision_Repair_Dir").Value, _
                     Sheets("Config").ListObjects("Devision_Repair").DataBodyRange)
 ActiveSheet.Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
 End Sub
 
 Sub Schedule_SBG_ALL()
-ActiveSheet.Unprotect Password:="113830"
+ActiveSheet.Unprotect Password:=""
 Call Schedule_Copy(Sheets("Config").Range("Devision_Create_Dir").Value, _
                     Sheets("Config").ListObjects("Devision_Create").DataBodyRange)
-ActiveSheet.Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+ActiveSheet.Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
 End Sub
 
 Function Schedule_Copy(Set_Path As String, MyArray As Variant)
 
 Dim answer As Integer
-Const title As String = "Генериране на графици."
+Const title As String = "ГѓГҐГ­ГҐГ°ГЁГ°Г Г­ГҐ Г­Г  ГЈГ°Г ГґГЁГ¶ГЁ."
 
 FolderPath = ThisWorkbook.Path & Set_Path
 Application.ScreenUpdating = False
 Application.EnableEvents = False
 
 If ActiveSheet.Range(ThisWorkbook.Sheets("Config").Range("balans")).Value <> 0 Then
-answer = MsgBox("Имате небаланс, искатели да продължите?", vbQuestion + vbYesNo)
+answer = MsgBox("Г€Г¬Г ГІГҐ Г­ГҐГЎГ Г«Г Г­Г±, ГЁГ±ГЄГ ГІГҐГ«ГЁ Г¤Г  ГЇГ°Г®Г¤ГєГ«Г¦ГЁГІГҐ?", vbQuestion + vbYesNo)
  End If
 
 If answer = vbNo Then Exit Function
 
 If Dir(FolderPath, vbDirectory) = vbNullString Then
-    MsgBox "Директорията не е намерена!", vbCritical, title
+    MsgBox "Г„ГЁГ°ГҐГЄГІГ®Г°ГЁГїГІГ  Г­ГҐ ГҐ Г­Г Г¬ГҐГ°ГҐГ­Г !", vbCritical, title
     Exit Function
 End If
 
 For Item = 1 To MyArray.Rows.Count
 If Dir(FolderPath & MyArray(Item, 1) & ".xlsx", vbDirectory) = vbNullString Then
-    MsgBox "Файла: """ & MyArray(Item, 1) & """ не е намерен!" & vbNewLine & vbCrLf & "Генерирането не е започнат!", vbCritical, title
+    MsgBox "Г”Г Г©Г«Г : """ & MyArray(Item, 1) & """ Г­ГҐ ГҐ Г­Г Г¬ГҐГ°ГҐГ­!" & vbNewLine & vbCrLf & "ГѓГҐГ­ГҐГ°ГЁГ°Г Г­ГҐГІГ® Г­ГҐ ГҐ Г§Г ГЇГ®Г·Г­Г ГІ!", vbCritical, title
     Exit Function
 End If
 Next Item
@@ -56,6 +55,6 @@ AutoFilterMode = False
 Application.CutCopyMode = False
 Application.ScreenUpdating = True
 Application.EnableEvents = True
-MsgBox "Успешно са генерирани " & Item - 1 & " файла.", vbQuestion, title
+MsgBox "Г“Г±ГЇГҐГёГ­Г® Г±Г  ГЈГҐГ­ГҐГ°ГЁГ°Г Г­ГЁ " & Item - 1 & " ГґГ Г©Г«Г .", vbQuestion, title
 End Function
 
