@@ -8,7 +8,7 @@ Application.ScreenUpdating = False
 Application.EnableEvents = False
 
 With ThisWorkbook.ActiveSheet
-  .Unprotect Password:="113830"
+  .Unprotect Password:=""
   Set Order = .Range("B1:I25")
 
   If .Range("F27") > 0 And .Range("H27") > 0 Then
@@ -22,7 +22,7 @@ With ThisWorkbook.ActiveSheet
     msg = True
   End If
 
-  .Protect Password:="113830"
+  .Protect Password:=""
 End With
 
 Application.ScreenUpdating = True
