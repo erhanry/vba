@@ -1,8 +1,7 @@
 Attribute VB_Name = "AJUR"
-' Campany Energo-Pro Bulgaria
 ' Author Erhan Ysuf
 
-Public Const Pass As String = "113830"
+Public Const Pass As String = ""
 
 Public Property Get ws() As Worksheet
     Set ws = ThisWorkbook.ActiveSheet
@@ -50,9 +49,9 @@ Dim File As String: File = Name & Format(Date, "-dd.mm.yyyy") & ".csv"
     End With
 
     If Msg Then
-      MsgBox "Експортирането на данни завърши успешно!" & vbNewLine & vbCrLf & File, vbQuestion, "Export Ajur CSV File."
+      MsgBox "Г…ГЄГ±ГЇГ®Г°ГІГЁГ°Г Г­ГҐГІГ® Г­Г  Г¤Г Г­Г­ГЁ Г§Г ГўГєГ°ГёГЁ ГіГ±ГЇГҐГёГ­Г®!" & vbNewLine & vbCrLf & File, vbQuestion, "Export Ajur CSV File."
     Else
-      MsgBox "Празна Таблица!", vbCritical, "Export Ajur CSV File."
+      MsgBox "ГЏГ°Г Г§Г­Г  Г’Г ГЎГ«ГЁГ¶Г !", vbCritical, "Export Ajur CSV File."
     End If
 
 End Sub
@@ -120,8 +119,8 @@ Dim Data_arr(1 To 25, 1 To 3) As Variant
       .EnableEvents = True
     End With
     If Msg Then
-        MsgBox "Експортирането на данни завърши успешно!" & File, vbQuestion, "Export Ajur XLS File."
+        MsgBox "Г…ГЄГ±ГЇГ®Г°ГІГЁГ°Г Г­ГҐГІГ® Г­Г  Г¤Г Г­Г­ГЁ Г§Г ГўГєГ°ГёГЁ ГіГ±ГЇГҐГёГ­Г®!" & File, vbQuestion, "Export Ajur XLS File."
     Else
-        MsgBox "Празна Таблица!", vbCritical, "Export Ajur XLS File."
+        MsgBox "ГЏГ°Г Г§Г­Г  Г’Г ГЎГ«ГЁГ¶Г !", vbCritical, "Export Ajur XLS File."
     End If
 End Sub
