@@ -41,9 +41,9 @@ End Sub
 Sub cop()
 Dim i As Integer
 	For i = 1 To 31
-		Sheets(Format(i, "00")).Unprotect Password:="113830"
+		Sheets(Format(i, "00")).Unprotect Password:=""
 		Sheets(Format(i, "00")).Range("C33").Formula = "=Schedules!E752"
-		Sheets(Format(i, "00")).Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+		Sheets(Format(i, "00")).Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
 	Next i
 End Sub
 ----------------------------------------
@@ -53,35 +53,35 @@ End Sub
 Sub cop()
 Dim i As Integer
     For i = 2 To 31
-        Sheets(Format(i, "00")).Unprotect Password:="113830"
+        Sheets(Format(i, "00")).Unprotect Password:=""
         Sheets(Format(i, "00")).Columns("ET:EZ").EntireColumn.Delete
-        Sheets(Format(i, "00")).Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+        Sheets(Format(i, "00")).Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
     Next i
 End Sub
 
 Sub cop()
 Dim i As Integer
     For i = 2 To 31
-        Sheets(Format(i, "00")).Unprotect Password:="113830"
+        Sheets(Format(i, "00")).Unprotect Password:=""
         Sheets(Format(i, "00")).Range("B4").Interior.Color = RGB(189, 215, 238)
         Sheets(Format(i, "00")).Range("B4").Locked = True
         Sheets(Format(i, "00")).Range("B4") = "='" + Format(i - 1, "00") + "'!B28"
-        Sheets(Format(i, "00")).Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+        Sheets(Format(i, "00")).Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
     Next i
 End Sub
 
 Sub cop()
 Dim i As Integer
     For i = 2 To 31
-        Sheets(Format(i, "00")).Unprotect Password:="113830"
+        Sheets(Format(i, "00")).Unprotect Password:=""
         Sheets(Format(1, "00")).Range("ET:EW").Copy Sheets(Format(i, "00")).Range("ET:EW")
-        Sheets(Format(i, "00")).Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+        Sheets(Format(i, "00")).Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
     Next i
 End Sub
 
 Sub opcom()
 
-ActiveSheet.Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+ActiveSheet.Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
 Application.ScreenUpdating = True
 
 Dim this_day As Long: this_day = CDbl(ThisWorkbook.Sheets("Config").Range("start_date")) + CDbl(ThisWorkbook.ActiveSheet.Name) - 1
@@ -106,7 +106,7 @@ ThisWorkbook.ActiveSheet.Range("K5:K28").Value = Application.Transpose(Price_Arr
 Set xmldoc = Nothing
 Set List = Nothing
 
-    ActiveSheet.Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+    ActiveSheet.Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
     Application.ScreenUpdating = True
 
 End Sub
@@ -160,7 +160,7 @@ End Sub
 Sub cop()
 Dim i As Integer
     For i = 1 To 31
-        Sheets(Format(i, "00")).Unprotect Password:="113830"
+        Sheets(Format(i, "00")).Unprotect Password:=""
         Sheets(Format(i, "00")).Range("L35:L36").Copy
         Sheets(Format(i, "00")).Range("BX36").PasteSpecial
         Sheets(Format(i, "00")).Range("CA36").PasteSpecial
@@ -185,21 +185,21 @@ Dim i As Integer
         Sheets(Format(i, "00")).Range("EF36").PasteSpecial
         Sheets(Format(i, "00")).Columns("CB:CJ").EntireColumn.Hidden = True
         Sheets(Format(i, "00")).Range("A1:A3").Select
-        Sheets(Format(i, "00")).Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+        Sheets(Format(i, "00")).Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
     Next i
 End Sub
 
 Sub cop()
 Dim i As Integer
     For i = 1 To 31
-        Sheets(Format(i, "00")).Unprotect Password:="113830"
+        Sheets(Format(i, "00")).Unprotect Password:=""
         Sheets( "01").Range("CK31").Copy
         Sheets(Format(i, "00")).Range("CK31").PasteSpecial
         Sheets( "01").Range("CM31").Copy
         Sheets(Format(i, "00")).Range("CM31").PasteSpecial
         Sheets("01").Range("A1:A3").Copy
         Sheets(Format(i, "00")).Range("A1:A3").PasteSpecial Paste:=xlPasteValues
-        Sheets(Format(i, "00")).Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+        Sheets(Format(i, "00")).Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
     Next i
 End Sub
 
