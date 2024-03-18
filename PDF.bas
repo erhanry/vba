@@ -79,16 +79,16 @@ Sub MMS(Source_Range As String, col As Integer)
 
     Dim MMS As Worksheet
     Set MMS = Sheets("MMS")
-    Const title As String = "Генериране на MMS."
+    Const title As String = "ГѓГҐГ­ГҐГ°ГЁГ°Г Г­ГҐ Г­Г  MMS."
     Path = ThisWorkbook.Path & Sheets("Config").Range("MMS_Dir").Value
 
     If Dir(Path, vbDirectory) = vbNullString Then
-        MsgBox "Директорията не е намерена!", vbCritical, title
+        MsgBox "Г„ГЁГ°ГҐГЄГІГ®Г°ГЁГїГІГ  Г­ГҐ ГҐ Г­Г Г¬ГҐГ°ГҐГ­Г !", vbCritical, title
         Exit Sub
     End If
     
     Application.ScreenUpdating = False
-    ActiveSheet.Unprotect Password:="113830"
+    ActiveSheet.Unprotect Password:=""
     ThisDay = CDbl(Sheets("Config").Range("start_date")) - 1 + CInt(ActiveSheet.Name)
     MMS.Cells(1, col).Value = ThisDay
     ActiveSheet.Range(Source_Range).SpecialCells(xlCellTypeVisible).Copy
@@ -120,9 +120,9 @@ Sub MMS(Source_Range As String, col As Integer)
          
     If check <> 1 Then
        Application.CutCopyMode = False
-       ActiveSheet.Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+       ActiveSheet.Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
        Application.ScreenUpdating = True
-       MsgBox "Нулев график или отрицателна стойност!" & vbNewLine & vbCrLf & "Генерирането не е започнат!", vbCritical, title
+       MsgBox "ГЌГіГ«ГҐГў ГЈГ°Г ГґГЁГЄ ГЁГ«ГЁ Г®ГІГ°ГЁГ¶Г ГІГҐГ«Г­Г  Г±ГІГ®Г©Г­Г®Г±ГІ!" & vbNewLine & vbCrLf & "ГѓГҐГ­ГҐГ°ГЁГ°Г Г­ГҐГІГ® Г­ГҐ ГҐ Г§Г ГЇГ®Г·Г­Г ГІ!", vbCritical, title
        Exit Sub
     End If
 
@@ -165,9 +165,9 @@ Sub MMS(Source_Range As String, col As Integer)
     Wend
     Print #1, "</ScheduleMessage>"
     Close #1
-    MsgBox "Успешно е генериран: " & File & msgVersion, vbQuestion, title
+    MsgBox "Г“Г±ГЇГҐГёГ­Г® ГҐ ГЈГҐГ­ГҐГ°ГЁГ°Г Г­: " & File & msgVersion, vbQuestion, title
 
-    ActiveSheet.Protect Password:="113830", AllowFormattingCells:=True, DrawingObjects:=False
+    ActiveSheet.Protect Password:="", AllowFormattingCells:=True, DrawingObjects:=False
     Application.ScreenUpdating = True
 End Sub
 
